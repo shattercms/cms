@@ -1,0 +1,15 @@
+{
+  "name": "shattercms",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shattercms/shattercms.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}

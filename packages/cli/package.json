@@ -1,0 +1,49 @@
+{
+  "name": "shattercms",
+  "version": "0.4.0",
+  "description": "Modular Headless CMS built with GraphQL, TypeScript and Express.",
+  "keywords": [
+    "shattercms",
+    "cms",
+    "headless",
+    "modular",
+    "api",
+    "typescript",
+    "graphql"
+  ],
+  "homepage": "https://github.com/shattercms/shattercms/blob/main/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shattercms/shattercms.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/shattercms/shattercms/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "shattercms": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc -w"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@shattercms/gateway": "^0.4.0",
+    "cac": "^6.7.1",
+    "create-require": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.21",
+    "typescript": "^4.1.3",
+    "@shattercms/types": "^0.4.0"
+  }
+}
