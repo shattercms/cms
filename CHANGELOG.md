@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/shattercms/shattercms/compare/v0.5.0...v0.5.1) (2021-02-14)
+
+
+### Bug Fixes
+
+* allow user to specify express middleware path ([6712aa0](https://github.com/shattercms/shattercms/commit/6712aa05a9a487bff7993d6a4c550a69131a61d4))
+
+
+
+
+
 # 0.5.0 (2021-02-14)
 
 
