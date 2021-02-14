@@ -1,7 +1,11 @@
 import express from 'express';
 import { ConnectionOptions, createConnection } from 'typeorm';
 import { buildSchema } from 'type-graphql';
-import { ApolloServer, SchemaDirectiveVisitor } from 'apollo-server-express';
+import {
+  ApolloServer,
+  AuthenticationError,
+  SchemaDirectiveVisitor,
+} from 'apollo-server-express';
 import { BuildContext, ShatterContext } from '@shattercms/types';
 import { authMiddleware } from './middleware';
 
@@ -49,6 +53,7 @@ export const startServer = async (context: BuildContext) => {
       }
       return error;
     },
+    uploads: false,
   });
 
   // Apply apollo middleware
