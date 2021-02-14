@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shattercms/shattercms.git"
+    "url": "https://github.com/shattercms/cms.git"
   },
   "workspaces": [
     "packages/*"
