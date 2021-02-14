@@ -1,16 +1,17 @@
 import express from 'express';
 import { ConnectionOptions, createConnection } from 'typeorm';
 import { buildSchema } from 'type-graphql';
-import {
-  ApolloServer,
-  AuthenticationError,
-  SchemaDirectiveVisitor,
-} from 'apollo-server-express';
+import { ApolloServer, SchemaDirectiveVisitor } from 'apollo-server-express';
 import { BuildContext, ShatterContext } from '@shattercms/types';
 import { authMiddleware } from './middleware';
 
 export const startServer = async (context: BuildContext) => {
   const app = express();
+
+  // Execute user express middleware
+  context.config.expressMiddlewares.forEach((middleware) => {
+    app.use(middleware);
+  });
 
   // Create database connection
   const orm = await createConnection({

@@ -5,6 +5,7 @@ const configDefault: ShatterConfig = {
   rootDir: '.',
   debug: false,
   modules: [],
+  expressMiddlewares: [],
   server: {
     host: 'localhost',
     port: 4000,

@@ -1,6 +1,6 @@
 import { Connection, EntitySchema } from 'typeorm';
 import { SchemaDirectiveVisitor } from 'apollo-server-express';
-import { Request, Response } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 import { CorsOptions, CorsOptionsDelegate } from 'cors';
 
 export interface ShatterConfig {
@@ -8,6 +8,7 @@ export interface ShatterConfig {
   debug: boolean;
 
   modules: Array<ConfigModule>;
+  expressMiddlewares: Array<RequestHandler>;
 
   server: {
     host: string;
