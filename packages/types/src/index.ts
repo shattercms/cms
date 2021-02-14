@@ -8,7 +8,9 @@ export interface ShatterConfig {
   debug: boolean;
 
   modules: Array<ConfigModule>;
-  expressMiddlewares: Array<RequestHandler>;
+  expressMiddlewares: Array<
+    RequestHandler | [path: string, handler: RequestHandler]
+  >;
 
   server: {
     host: string;

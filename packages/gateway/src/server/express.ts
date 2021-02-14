@@ -10,7 +10,11 @@ export const startServer = async (context: BuildContext) => {
 
   // Execute user express middleware
   context.config.expressMiddlewares.forEach((middleware) => {
-    app.use(middleware);
+    if (Array.isArray(middleware)) {
+      app.use(middleware[0], middleware[1]);
+    } else {
+      app.use(middleware);
+    }
   });
 
   // Create database connection
