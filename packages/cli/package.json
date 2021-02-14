@@ -11,14 +11,14 @@
     "typescript",
     "graphql"
   ],
-  "homepage": "https://github.com/shattercms/shattercms/blob/main/README.md",
+  "homepage": "https://github.com/shattercms/cms/blob/main/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shattercms/shattercms.git",
+    "url": "https://github.com/shattercms/cms.git",
     "directory": "packages/cli"
   },
   "bugs": {
-    "url": "https://github.com/shattercms/shattercms/issues"
+    "url": "https://github.com/shattercms/cms/issues"
   },
   "license": "MIT",
   "files": [
