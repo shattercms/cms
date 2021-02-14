@@ -48,6 +48,10 @@ export const startServer = async (context: BuildContext) => {
       },
     }),
     formatError: (error) => {
+      if (context.config.debug) {
+        return error;
+      }
+
       if (error.extensions?.exception) {
         delete error.extensions.exception.stacktrace;
       }
