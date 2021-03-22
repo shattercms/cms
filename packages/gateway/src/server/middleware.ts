@@ -1,7 +1,6 @@
 import { ShatterContext } from '@shattercms/types';
 import { MiddlewareFn } from 'type-graphql';
 import { AuthenticationError } from 'apollo-server-express';
-import fs from 'fs';
 
 export const authMiddleware: MiddlewareFn<ShatterContext> = async (
   { context, info, root },
