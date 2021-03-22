@@ -1,6 +1,6 @@
 {
   "name": "shattercms",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Modular Headless CMS built with GraphQL, TypeScript and Express.",
   "keywords": [
     "shattercms",
@@ -37,7 +37,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@shattercms/gateway": "^0.5.1",
+    "@shattercms/gateway": "^0.5.2",
     "cac": "^6.7.1",
     "create-require": "^1.1.1",
     "reflect-metadata": "^0.1.13"
