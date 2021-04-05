@@ -2,7 +2,6 @@ import { ShatterConfig, UserConfig } from '@shattercms/types';
 import defu from 'defu';
 
 const configDefault: ShatterConfig = {
-  rootDir: '.',
   debug: false,
   modules: [],
   expressMiddlewares: [],

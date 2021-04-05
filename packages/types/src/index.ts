@@ -4,7 +4,6 @@ import { Request, RequestHandler, Response } from 'express';
 import { CorsOptions, CorsOptionsDelegate } from 'cors';
 
 export interface ShatterConfig {
-  rootDir: string;
   debug: boolean;
 
   modules: Array<ConfigModule>;

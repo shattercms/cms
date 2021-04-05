@@ -4,20 +4,17 @@ import {
   Module,
   ShatterConfig,
 } from '@shattercms/types';
-import createRequire from 'create-require';
+import jiti from 'jiti';
+const jitiRequire = jiti();
 
 const resolveModule = (
-  rootRequire: NodeRequire,
   module: ConfigModule,
   data: any = {}
 ): [Module, any] | undefined => {
-  if (Array.isArray(module)) {
-    return resolveModule(rootRequire, module[0], module[1]);
-  }
+  if (Array.isArray(module)) return resolveModule(module[0], module[1]);
 
   if (typeof module === 'string') {
-    const file = rootRequire.resolve(module);
-    const moduleReq = rootRequire(file) as Module | { default: Module };
+    const moduleReq = jitiRequire(module) as Module | { default: Module };
     if (typeof moduleReq === 'object') {
       module = moduleReq.default;
     } else {
@@ -25,18 +22,14 @@ const resolveModule = (
     }
   }
 
-  if (typeof module === 'function') {
-    return [module, data];
-  }
+  if (typeof module === 'function') return [module, data];
 };
 
 export const getBuildContext = (config: ShatterConfig) => {
-  const rootRequire = createRequire(config.rootDir);
-
   // Resolve modules
   const modules: Array<[Module, any]> = [];
   for (const module of config.modules) {
-    const m = resolveModule(rootRequire, module);
+    const m = resolveModule(module);
     if (!m) {
       console.log(`Invalid module "${module}"`);
       continue;

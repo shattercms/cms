@@ -1,15 +1,15 @@
-import createRequire from 'create-require';
 import { existsSync } from 'fs';
+import jiti from 'jiti';
 import path from 'path';
+const jitiRequire = jiti();
 
-export const getConfig = (rootDir: string) => {
-  const rootRequire = createRequire(rootDir);
+export const getConfig = () => {
+  const names = ['shatter.ts', 'shatter.js', 'shatter.json'];
 
-  const names = ['shatter.js', 'shatter.json'];
   for (const name of names) {
-    const file = path.resolve(rootDir, name);
+    const file = path.resolve(name);
     if (existsSync(file)) {
-      let config = rootRequire(file);
+      let config = jitiRequire(file);
       if (config.default) {
         config = config.default;
       }
