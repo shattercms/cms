@@ -69,9 +69,16 @@ export const startServer = async (context: BuildContext) => {
   apolloServer.applyMiddleware({ app, cors: context.config.server.cors });
 
   // Start server
-  const host = context.config.server.host;
-  const port = context.config.server.port;
-  app.listen(port, host, () => {
+  let host = context.config.server.host;
+  let port = context.config.server.port;
+  const server = app.listen(port, host, () => {
+    const info = server.address();
+    if (info && typeof info !== 'string') {
+      host = info.address;
+      port = info.port;
+    }
+    if (host === '127.0.0.1') host = 'localhost';
+
     console.log(`ShatterCMS • http://${host}:${port}/graphql`);
   });
 };
