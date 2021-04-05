@@ -4,7 +4,11 @@ import path from 'path';
 const jitiRequire = jiti();
 
 export const getConfig = () => {
-  const names = ['shatter.ts', 'shatter.js', 'shatter.json'];
+  const names = [
+    'shatter.config.ts',
+    'shatter.config.js',
+    'shatter.config.json',
+  ];
 
   for (const name of names) {
     const file = path.resolve(name);
