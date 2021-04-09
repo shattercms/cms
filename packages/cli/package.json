@@ -39,7 +39,7 @@
   "dependencies": {
     "@shattercms/gateway": "^0.6.0",
     "cac": "^6.7.1",
-    "jiti": "^1.6.4",
+    "jiti": "^1.9.1",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
