@@ -9,7 +9,8 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "build:watch": "tsc -w"
+    "build:watch": "tsc -w",
+    "yalc": "yalc publish --push"
   },
   "publishConfig": {
     "access": "public"

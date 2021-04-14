@@ -9,12 +9,15 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "build:watch": "tsc -w"
+    "build:watch": "tsc -w",
+    "yalc": "yalc publish --push"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
     "apollo-server-express": "^2.18.2",
     "class-validator": "0.13.1",
     "defu": "^3.2.2",

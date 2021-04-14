@@ -4,7 +4,7 @@ import {
   Module,
   ShatterConfig,
 } from '@shattercms/types';
-import jiti from 'jiti';
+import { jiti } from '../utils';
 const jitiRequire = jiti();
 
 const resolveModule = (
