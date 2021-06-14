@@ -8,8 +8,7 @@ const jitiRequire = jiti();
 export type ConfigModule =
   | string
   | { path: string; options?: any }
-  | [path: string, options?: any]
-  | Module;
+  | [path: string, options?: any];
 
 export type CLIConfig = {
   gateway: DeepPartial<GatewayConfig>;
@@ -26,7 +25,7 @@ export const resolveModule = (
   module: ConfigModule
 ): [path: string, options?: any] => {
   if (typeof module === 'string') return [module, undefined];
-  if (Array.isArray(module) && module.length > 0) return module;
+  if (Array.isArray(module) && module.length > 0) return [module[0], module[1]];
   if (!Array.isArray(module) && typeof module === 'object' && module.path)
     return [module.path, module.options];
   throw new Error(`Invalid module definition '${JSON.stringify(module)}'`);
