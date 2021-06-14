@@ -4,12 +4,14 @@ import Gateway from '@shattercms/gateway';
 import { getConfig, resolveModule } from '.';
 import path from 'path';
 
-const cli = cac('shattercms')
-  .help()
+const cli = cac('shattercms');
+cli.help();
+cli
+  .command('', 'Run the ShatterCMS Gateway server')
   .option('--debug', 'Print debug messages', { default: false })
-  .option('--port <port>', 'Override server port')
-  .option('--host <host>', 'Override server hostname')
-  .option('--dir <dir>', 'Run ShatterCMS in another directory');
+  .option('--port <port>', 'Set server port')
+  .option('--host <host>', 'Set server hostname')
+  .option('--dir <dir>', 'Use another directory as root');
 
 const main = async () => {
   const { options } = cli.parse();
