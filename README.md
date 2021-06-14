@@ -27,7 +27,7 @@ $ yarn add shattercms
 
 ## Configuration
 
-#### **`shatter.config.ts`**
+`shatter.config.ts`
 
 ```ts
 import { UserConfig } from 'shattercms';
@@ -38,7 +38,7 @@ const config: UserConfig = {
 export default config;
 ```
 
-#### **`shatter.config.js`**
+`shatter.config.js`
 
 ```js
 /** @type {import('shattercms').UserConfig} */
@@ -48,7 +48,7 @@ const config = {
 module.exports = config;
 ```
 
-#### **`shatter.config.json`**
+`shatter.config.json`
 
 ```json
 {
@@ -84,7 +84,7 @@ export default {
 
 ## Start the Server
 
-#### **`package.json`**
+`package.json`
 
 ```json
 "scripts": {
@@ -106,7 +106,7 @@ $ yarn shattercms --help
 
 ## Create your own modules
 
-#### **`yourModule.ts`**
+`yourModule.ts`
 
 ```ts
 import type { Module } from '@shattercms/types';
@@ -126,7 +126,7 @@ export default exampleModule;
 
 > TypeScript modules need to be compiled to JavaScript before they can be used with ShatterCMS.
 
-#### **`yourModule.js`**
+`yourModule.js`
 
 ```js
 module.exports = (context, moduleOptions) => {
