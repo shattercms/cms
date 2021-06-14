@@ -18,9 +18,7 @@ class ShatterResolver {
 }
 
 const authHandler: AuthMiddleware = ({ permission }) => {
-  if (permission === 'public') {
-    return true;
-  }
+  if (permission === true) return true;
 };
 
 const authMiddleware: MiddlewareFn<GatewayContext> = async (
