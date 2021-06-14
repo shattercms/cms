@@ -1,25 +1,9 @@
-import { Connection, EntitySchema } from 'typeorm';
-import { SchemaDirectiveVisitor } from 'apollo-server-express';
-import { Request, RequestHandler, Response } from 'express';
-import { CorsOptions, CorsOptionsDelegate } from 'cors';
+import type { Connection, EntitySchema } from 'typeorm';
+import type { Request, RequestHandler, Response } from 'express';
+import type { MiddlewareFn } from 'type-graphql';
 
-export interface ShatterConfig {
+export interface GatewayConfig {
   debug: boolean;
-
-  modules: Array<ConfigModule>;
-  expressMiddlewares: Array<
-    RequestHandler | [path: string, handler: RequestHandler]
-  >;
-
-  server: {
-    host: string;
-    port: number;
-    cors: CorsOptions | CorsOptionsDelegate | boolean;
-    https?: {
-      key: string;
-      cert: string;
-    };
-  };
 
   postgres: {
     url?: string;
@@ -34,37 +18,45 @@ export interface ShatterConfig {
   permissions: {
     [scope: string]: any;
   };
-
-  [key: string]: any;
 }
-export type UserConfig = DeepPartial<ShatterConfig>;
 
-export interface ShatterContext {
-  config: ShatterConfig;
+export interface GatewayContext {
+  config: GatewayConfig;
+
   req: Request;
   res: Response;
   orm: Connection;
 
   auth: {
-    hasPermission: AuthHandler;
+    hasPermission: AuthMiddleware;
   };
 }
 
-export interface BuildContext {
-  config: ShatterConfig;
-  modules: Array<[Module, any]>;
+export interface ModuleContext {
+  config: GatewayConfig;
 
-  resolvers: Array<Function>;
-  entities: Array<Entity>;
-  directives: { [name: string]: typeof SchemaDirectiveVisitor };
-  authHandlers: Array<AuthHandler>;
+  modules: [module: Module, options?: any][];
+  resolvers: Function[];
+  entities: Entity[];
+
+  authMiddleware: AuthMiddleware[];
+  expressMiddleware: ExpressMiddleware[];
+  graphqlMiddleware: GraphQLMiddleware[];
 }
 
+export type ExpressMiddleware =
+  | RequestHandler
+  | [path: string, handler: RequestHandler];
+export type GraphQLMiddleware = MiddlewareFn<GatewayContext>;
+export type AuthMiddleware = (
+  resource: { scope: string; permission: any; data: any },
+  context: GatewayContext
+) => Promise<boolean | undefined> | boolean | undefined;
+
 export type Module<T = any> = (
-  context: BuildContext,
-  moduleOptions: T
+  context: ModuleContext,
+  options?: T
 ) => Promise<void> | void;
-export type ConfigModule = string | Module | [string | Module, any];
 
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends Array<infer U>
@@ -75,8 +67,3 @@ export type DeepPartial<T> = {
 };
 
 export type Entity = string | Function | EntitySchema<any> | undefined;
-
-export type AuthHandler = (
-  resource: { scope: string; permission: any; data: any },
-  context: ShatterContext
-) => Promise<boolean | undefined> | boolean | undefined;

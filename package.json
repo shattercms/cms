@@ -1,7 +1,6 @@
 {
-  "name": "shattercms",
+  "name": "cms",
   "private": true,
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/shattercms/cms.git"
@@ -9,7 +8,17 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "g:tsc": "cd $INIT_CWD && tsc",
+    "g:yalc": "cd $INIT_CWD && yalc publish --push",
+    "build": "yarn workspaces foreach --topological-dev run build",
+    "yalc": "yarn workspaces foreach --no-private run yalc"
+  },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@types/node": "^15.12.2",
+    "jest": "^27.0.4",
+    "prettier": "^2.3.1",
+    "standard-version": "^9.3.0",
+    "typescript": "^4.3.2"
   }
 }

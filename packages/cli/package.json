@@ -24,28 +24,25 @@
   "files": [
     "dist"
   ],
-  "bin": {
-    "shattercms": "dist/cli.js"
-  },
+  "bin": "dist/cli.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc -w",
-    "yalc": "yalc publish --push"
-  },
-  "publishConfig": {
-    "access": "public"
+    "build": "yarn g:tsc",
+    "yalc": "yarn g:yalc"
   },
   "dependencies": {
-    "@shattercms/gateway": "^0.6.2",
+    "@shattercms/gateway": "workspace:*",
+    "@shattercms/types": "workspace:*",
     "cac": "^6.7.1",
-    "jiti": "^1.9.1",
-    "reflect-metadata": "^0.1.13"
+    "defu": "^5.0.0",
+    "jiti": "^1.10.1",
+    "pg": "^8.6.0"
   },
   "devDependencies": {
-    "@shattercms/types": "^0.6.2",
-    "@types/node": "^14.14.21",
-    "typescript": "^4.1.3"
+    "@types/pg": "^8"
+  },
+  "peerDependencies": {
+    "pg": "*"
   }
 }

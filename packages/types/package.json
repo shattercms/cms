@@ -8,21 +8,17 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc -w",
-    "yalc": "yalc publish --push"
-  },
-  "publishConfig": {
-    "access": "public"
+    "build": "yarn g:tsc",
+    "yalc": "yarn g:yalc"
   },
   "dependencies": {
-    "apollo-server-express": "^2.19.0",
-    "cors": "^2.8.5",
+    "class-validator": "^0.13.1",
     "express": "^4.17.1",
-    "typeorm": "^0.2.29"
+    "graphql": "^15.5.0",
+    "type-graphql": "^1.1.1",
+    "typeorm": "^0.2.34"
   },
   "devDependencies": {
-    "@types/node": "^14.14.3",
-    "typescript": "^4.0.3"
+    "@types/express": "^4.17.12"
   }
 }
