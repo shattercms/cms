@@ -1,15 +1,15 @@
 # ShatterCMS
 
-<div style="display: flex; align-items: center; flex-flow: column;">
-<img style="display: block; height: 200px; margin-bottom: 20px;" src="./.github/shattercms.png" alt="ShatterCMS Icon"/>
-
-[![test](https://github.com/shattercms/cms/actions/workflows/test.yml/badge.svg)](https://github.com/shattercms/cms/actions/workflows/test.yml)
-[![Downloads](https://badgen.net/npm/dt/shattercms)](https://www.npmjs.com/package/shattercms)
-[![Version](https://badgen.net/npm/v/shattercms)](https://www.npmjs.com/package/shattercms)
-[![Types](https://badgen.net/npm/types/shattercms)](https://www.npmjs.com/package/shattercms)
-[![License](https://badgen.net/github/license/shattercms/cms)](https://github.com/shattercms/cms/blob/main/LICENSE)
-
-</div>
+<p align="center">
+  <img src="./.github/shattercms.png" height="250px" alt="ShatterCMS Icon"/>
+</p>
+<p align="center">
+  <a href="https://github.com/shattercms/cms/actions/workflows/test.yml"><img src="https://github.com/shattercms/cms/actions/workflows/test.yml/badge.svg" alt="Test Status"></a>
+  <a href="https://www.npmjs.com/package/shattercms"><img src="https://badgen.net/npm/dt/shattercms" alt="Downloads"></a>
+  <a href="https://www.npmjs.com/package/shattercms"><img src="https://badgen.net/npm/v/shattercms" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/shattercms"><img src="https://badgen.net/npm/types/shattercms" alt="Types"></a>
+  <a href="https://github.com/shattercms/cms/blob/main/LICENSE"><img src="https://badgen.net/github/license/shattercms/cms" alt="License"></a>
+</p>
 
 > Modular Headless CMS built with GraphQL, TypeScript and Express.
 
