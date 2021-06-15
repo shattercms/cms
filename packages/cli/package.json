@@ -1,6 +1,6 @@
 {
   "name": "shattercms",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "Modular Headless CMS built with GraphQL, TypeScript and Express.",
   "keywords": [
     "shattercms",

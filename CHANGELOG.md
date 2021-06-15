@@ -1,7 +1,13 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [0.7.0](https://github.com/shattercms/cms/compare/v0.6.2...v0.7.0) (2021-06-15)
+
+
+### Features
+
+* add default command with options ([869817e](https://github.com/shattercms/cms/commit/869817ed389af03721ceef4693c4e70b9d0187da))
 
 ## [0.6.2](https://github.com/shattercms/cms/compare/v0.6.1...v0.6.2) (2021-04-14)
 
