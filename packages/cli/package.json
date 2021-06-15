@@ -36,13 +36,6 @@
     "@shattercms/types": "workspace:*",
     "cac": "^6.7.1",
     "defu": "^5.0.0",
-    "jiti": "^1.10.1",
-    "pg": "^8.6.0"
-  },
-  "devDependencies": {
-    "@types/pg": "^8"
-  },
-  "peerDependencies": {
-    "pg": "*"
+    "jiti": "^1.10.1"
   }
 }
