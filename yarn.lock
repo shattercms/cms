@@ -788,14 +788,14 @@ __metadata:
   dependencies:
     "@shattercms/types": "workspace:"
     "@types/express": ^4.17.12
-    apollo-server-express: ^2.18.2
+    apollo-server-express: ^2.25.1
     class-validator: ^0.13.1
-    defu: ^3.2.2
+    defu: ^5.0.0
     express: ^4.17.1
     graphql: ^15.5.0
     pg: ^8.6.0
-    type-graphql: ^1.1.0
-    typeorm: ^0.2.28
+    type-graphql: ^1.1.1
+    typeorm: ^0.2.34
   languageName: unknown
   linkType: soft
 
@@ -1527,9 +1527,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-core@npm:^2.25.0":
-  version: 2.25.0
-  resolution: "apollo-server-core@npm:2.25.0"
+"apollo-server-core@npm:^2.25.1":
+  version: 2.25.1
+  resolution: "apollo-server-core@npm:2.25.1"
   dependencies:
     "@apollographql/apollo-tools": ^0.5.0
     "@apollographql/graphql-playground-html": 1.6.27
@@ -1554,12 +1554,11 @@ __metadata:
     loglevel: ^1.6.7
     lru-cache: ^6.0.0
     sha.js: ^2.4.11
-    subscriptions-transport-ws: ^0.9.11
+    subscriptions-transport-ws: ^0.9.19
     uuid: ^8.0.0
-    ws: ^6.0.0
   peerDependencies:
     graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 6a2619c46408a9c7a36323c6b3e2e82dbd31fe71088914ddb2723d3d3484ac6dc8e598d6cb4f295b5b9fe8a73c2cad76667a37e7e398fa3381d8f853ab3325d3
+  checksum: 90a86eb757ea7b30b06d77c23d38db8fb8b7b389699bb1c8c03977b69f86b4f7eff03d0ac4b763aebac7f79c4b46f105efc84ea56c481590da8a95d1a91e49b4
   languageName: node
   linkType: hard
 
@@ -1582,9 +1581,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-express@npm:^2.18.2":
-  version: 2.25.0
-  resolution: "apollo-server-express@npm:2.25.0"
+"apollo-server-express@npm:^2.25.1":
+  version: 2.25.1
+  resolution: "apollo-server-express@npm:2.25.1"
   dependencies:
     "@apollographql/graphql-playground-html": 1.6.27
     "@types/accepts": ^1.3.5
@@ -1593,7 +1592,7 @@ __metadata:
     "@types/express": 4.17.11
     "@types/express-serve-static-core": 4.17.19
     accepts: ^1.3.5
-    apollo-server-core: ^2.25.0
+    apollo-server-core: ^2.25.1
     apollo-server-types: ^0.9.0
     body-parser: ^1.18.3
     cors: ^2.8.5
@@ -1601,11 +1600,11 @@ __metadata:
     graphql-subscriptions: ^1.0.0
     graphql-tools: ^4.0.8
     parseurl: ^1.3.2
-    subscriptions-transport-ws: ^0.9.16
+    subscriptions-transport-ws: ^0.9.19
     type-is: ^1.6.16
   peerDependencies:
     graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 213db380ad38bbff80cd95db531087a1649b214aa2844de56cd6cf72ce639a5d0f321d9c11dec70c90a0bdc0548cdcb54a4d602f1ea93d8f1d523331a60c553d
+  checksum: 3ed1fba947cecabf9219085f2c07e2f314f9324ea5b8a82c945749e59850a3332dd46608832f51fb37362907db65aa4b0eb3e9bef507b1a91f0e494469d8f006
   languageName: node
   linkType: hard
 
@@ -1731,13 +1730,6 @@ __metadata:
   version: 1.0.1
   resolution: "arrify@npm:1.0.1"
   checksum: f1d3bae819f49f51a09da5f5c5ce282e79ca69bbdb32db1d9f6c62b151ef801b74398d007cfe89686e2c5aeb62576a398b9068e5172b7f4e20157aa3284076d3
-  languageName: node
-  linkType: hard
-
-"async-limiter@npm:~1.0.0":
-  version: 1.0.1
-  resolution: "async-limiter@npm:1.0.1"
-  checksum: d123312ace75c07399ddc58e06cc028dacce35f71cdf59cf9b22f6c31dde221c22285e6185ede823ecb67f3b3065e26205eb9f74fcbba3f12ce7a2c2b09d7763
   languageName: node
   linkType: hard
 
@@ -1972,7 +1964,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cac@npm:^6.7.1":
+"cac@npm:^6.7.3":
   version: 6.7.3
   resolution: "cac@npm:6.7.3"
   checksum: fc77c9d7309bfaded1a630fe61c5b3319ffeb6e02aeb561e55bd48d8e86724cb8414adf53bd4792db7ebcd112576b15ee695a3c3de19896a72cb34eb04508d34
@@ -2738,13 +2730,6 @@ __metadata:
   dependencies:
     object-keys: ^1.0.12
   checksum: b69c48c1b1dacb61f0b1cea367707c3bb214e3c47818aff18e6f20a7f88cbfa33d4cbdfd9ff79e56faba95ddca3d78ff10fbf2f02ecfad6f3e13b256e76b1212
-  languageName: node
-  linkType: hard
-
-"defu@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "defu@npm:3.2.2"
-  checksum: 15c2989ea916b66eae3639310faa3c4dafc4f5be55bda2576cbe47d6e90e56349ab2ebbe7cdf6f50543869a8cf07cb0e1ad82e74d4ec0ab9cac9ff00c353c2de
   languageName: node
   linkType: hard
 
@@ -6407,7 +6392,7 @@ fsevents@^2.3.2:
   dependencies:
     "@shattercms/gateway": "workspace:*"
     "@shattercms/types": "workspace:*"
-    cac: ^6.7.1
+    cac: ^6.7.3
     defu: ^5.0.0
     jiti: ^1.10.1
   bin:
@@ -6804,7 +6789,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"subscriptions-transport-ws@npm:^0.9.11, subscriptions-transport-ws@npm:^0.9.16":
+"subscriptions-transport-ws@npm:^0.9.19":
   version: 0.9.19
   resolution: "subscriptions-transport-ws@npm:0.9.19"
   dependencies:
@@ -7165,7 +7150,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"type-graphql@npm:^1.1.0, type-graphql@npm:^1.1.1":
+"type-graphql@npm:^1.1.1":
   version: 1.1.1
   resolution: "type-graphql@npm:1.1.1"
   dependencies:
@@ -7210,7 +7195,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"typeorm@npm:^0.2.28, typeorm@npm:^0.2.34":
+"typeorm@npm:^0.2.34":
   version: 0.2.34
   resolution: "typeorm@npm:0.2.34"
   dependencies:
@@ -7547,15 +7532,6 @@ typescript@^4.3.2:
     utf-8-validate:
       optional: true
   checksum: ffeb626d92f14aa3a67aa3784824c1d290131e25d225f4ca6b1b6b6d7ea754fca67694d89a5b99b144382365e1bccf1f7ec2f92df56f0d25f44939b070452f06
-  languageName: node
-  linkType: hard
-
-"ws@npm:^6.0.0":
-  version: 6.2.2
-  resolution: "ws@npm:6.2.2"
-  dependencies:
-    async-limiter: ~1.0.0
-  checksum: 00d406fb98114e6404c71f445e41818d9eb23644247a70be3f8da1f981c5f1db0f8ea191bee972fa5f5387c2ebd360268622871354be324acafaab43d7612362
   languageName: node
   linkType: hard
 

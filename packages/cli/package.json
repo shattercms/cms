@@ -34,7 +34,7 @@
   "dependencies": {
     "@shattercms/gateway": "workspace:*",
     "@shattercms/types": "workspace:*",
-    "cac": "^6.7.1",
+    "cac": "^6.7.3",
     "defu": "^5.0.0",
     "jiti": "^1.10.1"
   }
