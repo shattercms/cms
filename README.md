@@ -1,7 +1,7 @@
 # ShatterCMS
 
 <p align="center">
-  <img src="./.github/shattercms.png" height="250px" alt="ShatterCMS Icon"/>
+  <img src="./.github/shattercms.png" width="100px" alt="ShatterCMS Icon"/>
 </p>
 <p align="center">
   <a href="https://github.com/shattercms/cms/actions/workflows/test.yml"><img src="https://github.com/shattercms/cms/actions/workflows/test.yml/badge.svg" alt="Test Status"></a>
@@ -13,7 +13,27 @@
 
 > Modular Headless CMS built with GraphQL, TypeScript and Express.
 
-## Installation
+## Getting Started
+
+### Prerequisites
+
+ShatterCMS Gateway uses a **PostgreSQL database** under the hood. Follow the guides for your platform to get a database running. If your connection options vary from the default, you can set your own in the config file.
+
+`shatter.config.ts`
+
+```ts
+postgres: {
+  url?: string,
+  database: 'shattercms',
+  username: 'postgres',
+  password: 'postgres',
+  logging: boolean,
+  synchronize: boolean,
+  migrations?: (string | Function)[],
+}
+```
+
+### Installation
 
 ```bash
 # npm
@@ -23,9 +43,20 @@ $ npm install shattercms
 $ yarn add shattercms
 ```
 
-> You likely have to install the `pg` package too, as `typeorm` does not list it as dependency. The gateway server will not start without it.
+> `typeorm` does not list the `pg` package as dependency, causing issues on startup when using yarn 2. Just add the snippet below to your `.yarnrc.yml` to fix this issue.
 
-## Configuration
+`.yarnrc.yml`
+
+```yml
+packageExtensions:
+  'typeorm@*':
+    dependencies:
+      pg: '*'
+```
+
+## Usage
+
+### Configuration
 
 `shatter.config.ts`
 
@@ -56,7 +87,7 @@ module.exports = config;
 }
 ```
 
-## Adding modules
+### Adding modules
 
 ```ts
 // Without passing options
@@ -82,7 +113,7 @@ export default {
 };
 ```
 
-## Start the Server
+### Start the Server
 
 `package.json`
 
@@ -104,7 +135,9 @@ $ yarn shattercms
 $ yarn shattercms --help
 ```
 
-## Create your own modules
+## Development
+
+### Create your own modules
 
 `yourModule.ts`
 
@@ -136,3 +169,9 @@ module.exports = (context, moduleOptions) => {
   // console.log(moduleOptions)
 };
 ```
+
+## License
+
+This project is licensed under the **MIT License**.
+
+See [LICENSE](LICENSE) for more information.
