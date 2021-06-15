@@ -4,7 +4,7 @@ import defu from 'defu';
 const configDefault: GatewayConfig = {
   debug: false,
   postgres: {
-    database: 'cms',
+    database: 'shattercms',
     username: 'postgres',
     password: 'postgres',
     logging: false,
