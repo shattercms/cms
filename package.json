@@ -14,7 +14,8 @@
     "g:yalc": "cd $INIT_CWD && yalc publish --push",
     "build": "yarn workspaces foreach --topological-dev run build",
     "yalc": "yarn workspaces foreach --no-private run yalc",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "release": "standard-version --release-as"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
