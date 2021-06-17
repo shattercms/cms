@@ -7,7 +7,7 @@ import { getGatewayContext } from './context';
 export const getApollo = async (context: ModuleContext) => {
   // Create database connection
   const orm = await createConnection({
-    ...context.config.postgres,
+    ...context.config.typeorm,
     type: 'postgres',
     entities: context.entities,
   } as ConnectionOptions);

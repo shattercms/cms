@@ -32,7 +32,7 @@ const authMiddleware: MiddlewareFn<GatewayContext> = async (
   // Construct scope and check permission
   const scope = `${info.operation.operation}.${info.fieldName}`;
 
-  const permission = context.config.permissions[scope];
+  const permission = context.config.scopes[scope];
   const hasAccess = await context.auth.hasPermission(
     { scope, permission, data: root },
     context

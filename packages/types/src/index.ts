@@ -8,19 +8,8 @@ import type { ApolloServerExpressConfig } from 'apollo-server-express';
 export interface GatewayConfig {
   debug: boolean;
   apollo: Omit<ApolloServerExpressConfig, 'schema' | 'context'>;
-  postgres: {
-    url?: string;
-    database: string;
-    username: string;
-    password: string;
-    logging: boolean;
-    synchronize: boolean;
-    migrations?: (string | Function)[];
-    cache: PostgresConnectionOptions['cache'];
-  };
-  permissions: {
-    [scope: string]: any;
-  };
+  typeorm: Omit<PostgresConnectionOptions, 'type' | 'entities'>;
+  scopes: { [scope: string]: any };
 }
 
 export interface GatewayContext {

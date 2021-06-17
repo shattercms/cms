@@ -2,7 +2,6 @@ import type { DeepPartial, GatewayConfig } from '@shattercms/types';
 import defu from 'defu';
 
 const configDefault: GatewayConfig = {
-  debug: false,
   apollo: {
     uploads: false,
     subscriptions: {
@@ -10,7 +9,7 @@ const configDefault: GatewayConfig = {
       keepAlive: 30000,
     },
   },
-  postgres: {
+  typeorm: {
     database: 'shattercms',
     username: 'postgres',
     password: 'postgres',
@@ -18,7 +17,8 @@ const configDefault: GatewayConfig = {
     synchronize: false,
     cache: false,
   },
-  permissions: {},
+  debug: false,
+  scopes: {},
 };
 
 export const getConfig = (config: DeepPartial<GatewayConfig>) => {
