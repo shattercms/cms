@@ -7,7 +7,7 @@ import type {
 } from '@shattercms/types';
 import { getHandler } from './handler';
 import { getConfig } from './config';
-import { getContext } from './context';
+import { getModuleContext } from './context';
 
 export class Gateway {
   private context: ModuleContext;
@@ -18,7 +18,7 @@ export class Gateway {
    */
   constructor(config: DeepPartial<GatewayConfig> = {}) {
     const c = getConfig(config);
-    this.context = getContext(c);
+    this.context = getModuleContext(c);
   }
 
   /**

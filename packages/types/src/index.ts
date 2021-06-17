@@ -1,6 +1,8 @@
-import type { Connection, EntitySchema } from 'typeorm';
+import type { Connection, EntitySchema, EntityTarget } from 'typeorm';
 import type { Request, RequestHandler, Response } from 'express';
 import type { MiddlewareFn } from 'type-graphql';
+import type { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import type DataLoader from 'dataloader';
 
 export interface GatewayConfig {
   debug: boolean;
@@ -13,6 +15,7 @@ export interface GatewayConfig {
     logging: boolean;
     synchronize: boolean;
     migrations?: (string | Function)[];
+    cache: PostgresConnectionOptions['cache'];
   };
 
   permissions: {
@@ -30,6 +33,12 @@ export interface GatewayContext {
   auth: {
     hasPermission: AuthMiddleware;
   };
+
+  getLoader: <E, K extends keyof E>(
+    name: string,
+    key: K,
+    entity: EntityTarget<E>
+  ) => DataLoader<E[K], E>;
 }
 
 export interface ModuleContext {

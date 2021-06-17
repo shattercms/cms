@@ -1291,6 +1291,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:4.17.12"],
             ["apollo-server-express", "virtual:ae48c0c7eeb8f1c41e7eb286b070f402d592bfc156fc5631ca4ba6d3a27b795b42dc55821cb1538408b1d2416330c7acaa585a65dbbb5b375510bc9cc6576dfb#npm:2.25.1"],
             ["class-validator", "npm:0.13.1"],
+            ["dataloader", "npm:2.0.0"],
             ["defu", "npm:5.0.0"],
             ["express", "npm:4.17.1"],
             ["graphql", "npm:15.5.0"],
@@ -1308,6 +1309,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@shattercms/types", "workspace:packages/types"],
             ["@types/express", "npm:4.17.12"],
             ["class-validator", "npm:0.13.1"],
+            ["dataloader", "npm:2.0.0"],
             ["express", "npm:4.17.1"],
             ["graphql", "npm:15.5.0"],
             ["type-graphql", "virtual:9e078c886e7065a30f856da24edd25d74ffb42f2d5df9e6b65ea09a549b6b40e1e0713e18f31f9b4cfea3bf74ea86241fced1d6ed35601be242c886bbbd0ba0a#npm:1.1.1"],
@@ -3543,6 +3545,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["abab", "npm:2.0.5"],
             ["whatwg-mimetype", "npm:2.3.0"],
             ["whatwg-url", "npm:8.6.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["dataloader", [
+        ["npm:2.0.0", {
+          "packageLocation": "./.yarn/cache/dataloader-npm-2.0.0-216fa8d208-0165c2e807.zip/node_modules/dataloader/",
+          "packageDependencies": [
+            ["dataloader", "npm:2.0.0"]
           ],
           "linkType": "HARD",
         }]

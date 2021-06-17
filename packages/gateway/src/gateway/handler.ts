@@ -2,7 +2,8 @@ import { Router } from 'express';
 import { ConnectionOptions, createConnection } from 'typeorm';
 import { buildSchema } from 'type-graphql';
 import { ApolloServer } from 'apollo-server-express';
-import type { ModuleContext, GatewayContext } from '@shattercms/types';
+import type { ModuleContext } from '@shattercms/types';
+import { getGatewayContext } from './context';
 
 export const getHandler = async (context: ModuleContext) => {
   const handler = Router();
@@ -33,22 +34,8 @@ export const getHandler = async (context: ModuleContext) => {
   // Setup apollo
   const apolloServer = new ApolloServer({
     schema,
-    context: ({ req, res }): GatewayContext => ({
-      req,
-      res,
-      config: context.config,
-      orm,
-      auth: {
-        hasPermission: async (resource, ctx) => {
-          for (const handler of context.authMiddleware) {
-            const result = await handler(resource, ctx);
-            if (result === true) return true;
-          }
-          return false;
-        },
-      },
-    }),
-    uploads: false, // Disable uploads to prevent version mismatch
+    context: ({ req, res }) => getGatewayContext(context, { req, res, orm }),
+    uploads: false,
   });
 
   // Apply apollo middleware

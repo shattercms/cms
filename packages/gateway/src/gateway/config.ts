@@ -9,6 +9,7 @@ const configDefault: GatewayConfig = {
     password: 'postgres',
     logging: false,
     synchronize: false,
+    cache: false,
   },
   permissions: {},
 };

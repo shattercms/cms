@@ -15,6 +15,7 @@
     "@shattercms/types": "workspace:",
     "apollo-server-express": "^2.25.1",
     "class-validator": "^0.13.1",
+    "dataloader": "^2.0.0",
     "defu": "^5.0.0",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
