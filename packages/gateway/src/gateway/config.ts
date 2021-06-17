@@ -3,6 +3,13 @@ import defu from 'defu';
 
 const configDefault: GatewayConfig = {
   debug: false,
+  apollo: {
+    uploads: false,
+    subscriptions: {
+      path: '/subscriptions',
+      keepAlive: 30000,
+    },
+  },
   postgres: {
     database: 'shattercms',
     username: 'postgres',

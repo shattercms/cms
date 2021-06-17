@@ -3,10 +3,11 @@ import type { Request, RequestHandler, Response } from 'express';
 import type { MiddlewareFn } from 'type-graphql';
 import type { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 import type DataLoader from 'dataloader';
+import type { ApolloServerExpressConfig } from 'apollo-server-express';
 
 export interface GatewayConfig {
   debug: boolean;
-
+  apollo: Omit<ApolloServerExpressConfig, 'schema' | 'context'>;
   postgres: {
     url?: string;
     database: string;
@@ -17,7 +18,6 @@ export interface GatewayConfig {
     migrations?: (string | Function)[];
     cache: PostgresConnectionOptions['cache'];
   };
-
   permissions: {
     [scope: string]: any;
   };
