@@ -26,7 +26,10 @@ const authMiddleware: MiddlewareFn<GatewayContext> = async (
   next
 ) => {
   // Only process root fields
-  if (info.parentType.name.toLowerCase() !== info.operation.operation)
+  if (
+    info.parentType.name.toUpperCase() !==
+    info.operation.operation.toUpperCase()
+  )
     return next();
 
   // Construct scope and check permission
