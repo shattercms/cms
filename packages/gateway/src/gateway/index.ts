@@ -1,20 +1,24 @@
-import express from 'express';
+import express, { Router, Express } from 'express';
 import type {
   ModuleContext,
   Module,
   GatewayConfig,
   DeepPartial,
 } from '@shattercms/types';
-import { getApollo } from './apollo';
+import { createApollo } from './apollo';
 import { getConfig } from './config';
 import { getModuleContext } from './context';
-import { createServer } from 'http';
+import { createServer, Server } from 'http';
 import type { ApolloServer } from 'apollo-server-express';
 
 export class Gateway {
   private context: ModuleContext;
-  private apollo?: ApolloServer;
   private isInitialized = false;
+  private isListening = false;
+
+  private apollo?: ApolloServer;
+  private server?: Server;
+  private handler?: Router;
 
   /**
    * Creates a new gateway instance
@@ -57,7 +61,52 @@ export class Gateway {
   public async getApollo() {
     if (this.apollo) return this.apollo;
     await this.init();
-    return getApollo(this.context);
+
+    // Create a new apollo server instance
+    const apollo = await createApollo(this.context);
+
+    this.apollo = apollo;
+    return apollo;
+  }
+
+  public async getHandler(graphqlPath: string) {
+    if (this.handler) return this.handler;
+    await this.init();
+
+    // Create a new express router
+    const handler = Router();
+
+    // Apply user-defined express middleware
+    this.context.expressMiddleware.forEach((m) => {
+      if (Array.isArray(m)) {
+        handler.use(m[0], m[1]);
+      } else {
+        handler.use(m);
+      }
+    });
+
+    // Apply apollo server middleware
+    const apollo = await this.getApollo();
+    handler.use(apollo.getMiddleware({ cors: false, path: graphqlPath }));
+
+    this.handler = handler;
+    return handler;
+  }
+
+  public async getServer(graphqlPath: string) {
+    if (this.server) return this.server;
+    await this.init();
+
+    // Create the http server from an express app
+    const handler = await this.getHandler(graphqlPath);
+    const server = createServer(express().use(handler));
+
+    // Apply apollo subscription handlers
+    const apollo = await this.getApollo();
+    apollo.installSubscriptionHandlers(server);
+
+    this.server = server;
+    return server;
   }
 
   /**
@@ -69,37 +118,41 @@ export class Gateway {
   public async listen(
     port: number = 4000,
     host: string = 'localhost',
-    grapqhlPath = '/graphql'
+    graphqlPath = '/graphql'
   ) {
-    // Setup express app and http server
-    const apollo = await this.getApollo();
-    const app = express();
-    const server = createServer(app);
+    if (this.isListening)
+      throw new Error('The gateway server is already running');
+    await this.init();
 
-    // Apply user-defined express middleware
-    this.context.expressMiddleware.forEach((m) => {
-      if (Array.isArray(m)) {
-        app.use(m[0], m[1]);
-      } else {
-        app.use(m);
-      }
-    });
-
-    // Apply apollo middleware
-    app.use(apollo.getMiddleware({ cors: false, path: grapqhlPath }));
-    apollo.installSubscriptionHandlers(server);
+    // Create a new server instance
+    const server = await this.getServer(graphqlPath);
 
     // Spin up server and log startup message
-    server.listen(port, host, () => {
-      const info = server.address();
-      if (info && typeof info !== 'string') {
-        host = info.address;
-        port = info.port;
-      }
-      if (host === '127.0.0.1') host = 'localhost';
-      console.log(
-        `ShatterCMS Gateway • http://${host}:${port}${apollo.graphqlPath}`
-      );
+    await new Promise<void>((resolve, reject) => {
+      server.on('error', reject);
+      server.listen(port, host, resolve);
     });
+    const info = server.address();
+    if (info && typeof info !== 'string') {
+      host = info.address;
+      port = info.port;
+    }
+    if (host === '127.0.0.1') host = 'localhost';
+    console.log(`ShatterCMS Gateway • http://${host}:${port}${graphqlPath}`);
+
+    this.isListening = true;
+  }
+
+  /**
+   * Stops the gateway server
+   */
+  public async stop() {
+    await new Promise<void>((resolve, reject) => {
+      if (!this.server) return resolve();
+      this.server.once('close', resolve);
+      this.server.close();
+    });
+    if (this.apollo) await this.apollo.stop();
+    this.isListening = false;
   }
 }

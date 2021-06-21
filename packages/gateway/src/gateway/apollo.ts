@@ -4,7 +4,7 @@ import { ApolloServer } from 'apollo-server-express';
 import type { ModuleContext } from '@shattercms/types';
 import { getGatewayContext } from './context';
 
-export const getApollo = async (context: ModuleContext) => {
+export const createApollo = async (context: ModuleContext) => {
   // Create database connection
   const orm = await createConnection({
     ...context.config.typeorm,

@@ -5808,7 +5808,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"pg@npm:^8.6.0":
+"pg@npm:*, pg@npm:^8.6.0":
   version: 8.6.0
   resolution: "pg@npm:8.6.0"
   dependencies:
